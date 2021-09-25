@@ -1,0 +1,51 @@
+name:                vimhs
+version:             0.1.0.0
+github:              "kasshiy/vimhs"
+license:             BSD3
+author:              "Kasshi K"
+maintainer:          "kasshi.4259.b.b@gmail.com"
+copyright:           "Copyright (c) 2021 chickbone"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Your Projects Category
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/chickbone/vimhs#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- bytestring
+- transformers
+
+library:
+  source-dirs: src
+
+executables:
+  vimhs-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - vimhs
+
+tests:
+  vimhs-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - vimhs
